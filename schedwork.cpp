@@ -48,7 +48,15 @@ bool schedule(
     }
     sched.clear();
     // Add your code below
-    return schedule1(avail, dailyNeed, maxShifts, sched);}
+    return schedule1(avail, dailyNeed, maxShifts, sched);
+}
+
+bool schedule(
+    const AvailabilityMatrix& avail,
+    const size_t dailyNeed,
+    const size_t maxShifts,
+    DailySchedule& sched
+);
 
 bool schedule1(
     const AvailabilityMatrix& avail,
