@@ -64,6 +64,7 @@ bool schedule1(
     DailySchedule& sched
 )
 {
+    cout << sched.size() << endl;
     vector<Worker_T> rowavail;
     for (int i = 0; i < avail[sched.size()].size(); i++) {
         if (avail[sched.size()][i]) {
