@@ -31,7 +31,7 @@ std::set<std::string> wordle(
         }
     }
     if (blanks == 0) {
-        if (dict.contains(in)) ret.insert(in);
+        if (dict.count(in) == 1) ret.insert(in);
         return ret;
     }
     if (blanks < floating.size()) {
