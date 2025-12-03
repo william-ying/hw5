@@ -47,6 +47,7 @@ bool schedule(
         return false;
     }
     sched.clear();
+    // Add your code below
     return schedule1(avail, dailyNeed, maxShifts, sched);}
 
 bool schedule1(
@@ -56,12 +57,6 @@ bool schedule1(
     DailySchedule& sched
 )
 {
-    if(avail.size() == 0U){
-        return false;
-    }
-    if (first) sched.clear();
-    // Add your code below
-    
     vector<Worker_T> rowavail;
     for (int i = 0; i < avail[sched.size()].size(); i++) {
         if (avail[sched.size()][i]) {
