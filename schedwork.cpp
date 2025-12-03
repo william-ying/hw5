@@ -50,7 +50,7 @@ bool schedule(
     // sched.clear();
     // Add your code below
     vector<Worker_T> rowavail;
-    for (int i = 0; i < avail[0].size(); i++) {
+    for (int i = 0; i < avail[sched.size()].size(); i++) {
         if (avail[sched.size()][i]) {
             bool add = 0;
             for (int j = 0; j < sched.size(); j++) {
