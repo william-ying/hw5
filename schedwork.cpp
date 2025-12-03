@@ -70,9 +70,9 @@ bool schedule1(
     vector<Worker_T> rowavail;
     for (int i = 0; i < avail[sched.size()].size(); i++) {
         if (avail[sched.size()][i]) {
-            bool add = 0;
+            int add = 0;
             for (int j = 0; j < sched.size(); j++) {
-                if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end()) add += 1;
+                // if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end()) add += 1;
                 cout << j << " " << i << " " << sched[j][0] << " " << add << endl;
                 // if (j == 1) cout << sched[j][0] << endl;
             }
