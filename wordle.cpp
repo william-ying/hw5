@@ -48,6 +48,14 @@ std::set<std::string> wordle(
             ret.insert(*j);
         }
     }
+    for (char c = 'a'; c <= 'z'; c++) {
+        string temp = in;
+        temp[first] = c;
+        std::set<std::string> t = wordle(temp, floating, dict);
+        for (auto j = t.begin(); j != t.end(); j++) {
+            ret.insert(*j);
+        }
+    }
     return ret;
 }
 
