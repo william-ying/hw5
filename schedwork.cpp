@@ -85,7 +85,7 @@ bool schedule1(
     vector<Worker_T> data;
     // cout << sched.size() << endl;
     perms(0, dailyNeed, data, schedrows, rowavail);
-    cout << schedrows.size() << endl << endl;
+    cout << schedrows[0][0] << endl << endl;
     if (schedrows.size() == 0) return false;
     if (avail.size() - 1 == sched.size()) {
         sched.push_back(schedrows[0]);
