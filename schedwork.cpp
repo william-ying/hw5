@@ -74,8 +74,9 @@ bool schedule1(
             for (int j = 0; j < sched.size(); j++) {
                 if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end()) add += 1;
                 // cout << j << " " << add << endl;
-                if (j == 1) cout << sched[j][0] << endl;
+                // if (j == 1) cout << sched[j][0] << endl;
             }
+            cout << add << endl;
             if (add < maxShifts) {
                 rowavail.push_back(i);
             }
