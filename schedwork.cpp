@@ -80,12 +80,12 @@ bool schedule1(
     if (rowavail.size() < dailyNeed) return false;
     vector<vector<Worker_T>> schedrows;
     vector<Worker_T> data;
+    cout << sched.size() << endl;
     perms(0, dailyNeed, data, schedrows, rowavail);
     if (schedrows.size() > 0 && avail.size() == 1) {
         sched.push_back(schedrows[0]);
         return true;
     }
-    cout << sched.size() << endl;
     for (int i = 0; i < schedrows.size(); i++) {
         sched.push_back(schedrows[i]);
         if (schedule1(avail, dailyNeed, maxShifts, sched)) return true;
