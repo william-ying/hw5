@@ -30,13 +30,14 @@ std::set<std::string> wordle(
             if (first == -1) first = i;
         }
     }
+    if (blanks < floating.size()) {
+        return ret;
+    }
     if (blanks == 0) {
         if (dict.count(in) == 1) ret.insert(in);
         return ret;
     }
-    if (blanks < floating.size()) {
-        return ret;
-    }
+    
     for (int i = 0; i < floating.size(); i++) {
         string temp = in;
         string temp1 = floating;
