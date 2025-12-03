@@ -51,10 +51,10 @@ bool schedule(
     // Add your code below
     vector<Worker_T> rowavail;
     for (int i = 0; i < avail[0].size(); i++) {
-        if (avail[0][i]) {
+        if (avail[sched.size()][i]) {
             bool add = 0;
             for (int j = 0; j < sched.size(); j++) {
-                if (sched[j].find(sched[j].begin(), sched[j].end(), i) != sched[j].end) add += 1;
+                if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end) add += 1;
             }
             if (add < maxShifts) {
                 rowavail.push_back(i);
@@ -70,12 +70,9 @@ bool schedule(
         return true;
     }
     for (int i = 0; i < schedrows.size(); i++) {
-        vector<bool> tempavail = avail[0];
-        avail.erase(avail.begin());
         sched.push_back(schedrows[i]);
         if (schedule(avail, dailyNeed, maxShifts, sched)) return true;
         sched.pop_back();
-        avail.insert(avail.begin(), tempavail);
     }
     return false;
 }
