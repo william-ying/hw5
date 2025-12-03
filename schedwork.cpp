@@ -36,6 +36,12 @@ void perms(int index, int dailyNeed, vector<Worker_T> &data, vector<vector<Worke
 
 
 // Add your implementation of schedule() and other helper functions here
+bool schedule1(
+    const AvailabilityMatrix& avail,
+    const size_t dailyNeed,
+    const size_t maxShifts,
+    DailySchedule& sched
+);
 
 bool schedule(
     const AvailabilityMatrix& avail,
@@ -50,13 +56,6 @@ bool schedule(
     // Add your code below
     return schedule1(avail, dailyNeed, maxShifts, sched);
 }
-
-bool schedule(
-    const AvailabilityMatrix& avail,
-    const size_t dailyNeed,
-    const size_t maxShifts,
-    DailySchedule& sched
-);
 
 bool schedule1(
     const AvailabilityMatrix& avail,
