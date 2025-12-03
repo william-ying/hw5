@@ -57,6 +57,8 @@ bool schedule(
     return schedule1(avail, dailyNeed, maxShifts, sched);
 }
 
+
+
 bool schedule1(
     const AvailabilityMatrix& avail,
     const size_t dailyNeed,
@@ -70,9 +72,9 @@ bool schedule1(
         if (avail[sched.size()][i]) {
             bool add = 0;
             for (int j = 0; j < sched.size(); j++) {
+                cout << j << " " << add << endl;
                 if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end()) add += 1;
             }
-            cout << i << " " << add << endl;
             if (add < maxShifts) {
                 rowavail.push_back(i);
             }
