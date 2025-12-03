@@ -42,13 +42,26 @@ bool schedule(
     const size_t dailyNeed,
     const size_t maxShifts,
     DailySchedule& sched
+) {
+    if(avail.size() == 0U){
+        return false;
+    }
+    sched.clear();
+    return schedule1(avail, dailyNeed, maxShifts, sched);}
+
+bool schedule1(
+    const AvailabilityMatrix& avail,
+    const size_t dailyNeed,
+    const size_t maxShifts,
+    DailySchedule& sched
 )
 {
     if(avail.size() == 0U){
         return false;
     }
-    // sched.clear();
+    if (first) sched.clear();
     // Add your code below
+    
     vector<Worker_T> rowavail;
     for (int i = 0; i < avail[sched.size()].size(); i++) {
         if (avail[sched.size()][i]) {
@@ -71,7 +84,7 @@ bool schedule(
     }
     for (int i = 0; i < schedrows.size(); i++) {
         sched.push_back(schedrows[i]);
-        if (schedule(avail, dailyNeed, maxShifts, sched)) return true;
+        if (schedule1(avail, dailyNeed, maxShifts, sched)) return true;
         sched.pop_back();
     }
     return false;
