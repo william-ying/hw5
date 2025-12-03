@@ -85,6 +85,7 @@ bool schedule1(
         sched.push_back(schedrows[0]);
         return true;
     }
+    cout << sched.size() << endl;
     for (int i = 0; i < schedrows.size(); i++) {
         sched.push_back(schedrows[i]);
         if (schedule1(avail, dailyNeed, maxShifts, sched)) return true;
