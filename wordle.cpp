@@ -21,8 +21,34 @@ std::set<std::string> wordle(
     const std::string& floating,
     const std::set<std::string>& dict)
 {
-    // Add your code here
-
+    int blanks = 0;
+    int first = -1;
+    std::set<std::string> ret;
+    for (int i = 0; i < in.size(); i++) {
+        if (in[i] == '-') {
+            blanks++;
+            if (first == -1) first = i;
+        }
+    }
+    if (blanks == 0) {
+        if (dict.contains(in)) ret.insert(in);
+        return ret;
+    }
+    if (blanks < floating.size()) {
+        return ret;
+    }
+    for (int i = 0; i < floating.size(); i++) {
+        string temp = in;
+        string temp1 = floating;
+        temp1.replace(i, 1, "");
+        temp[first] = floating[i];
+        std::set<std::string> t = wordle(temp, temp1, dict);
+        for (auto j = t.begin(); j != t.end(); j++) {
+            ret.insert(*j);
+        }
+    }
+    return ret;
 }
 
 // Define any helper functions here
+
