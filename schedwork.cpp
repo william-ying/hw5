@@ -72,6 +72,7 @@ bool schedule1(
             for (int j = 0; j < sched.size(); j++) {
                 if (find(sched[j].begin(), sched[j].end(), i) != sched[j].end()) add += 1;
             }
+            cout << i << " " << add << endl;
             if (add < maxShifts) {
                 rowavail.push_back(i);
             }
@@ -80,7 +81,7 @@ bool schedule1(
     if (rowavail.size() < dailyNeed) return false;
     vector<vector<Worker_T>> schedrows;
     vector<Worker_T> data;
-    cout << sched.size() << endl;
+    // cout << sched.size() << endl;
     perms(0, dailyNeed, data, schedrows, rowavail);
     if (schedrows.size() == 0) return false;
     if (avail.size() - 1 == sched.size()) {
